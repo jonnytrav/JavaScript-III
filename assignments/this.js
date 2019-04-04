@@ -40,3 +40,26 @@ console.log(jonathan);
 
 // Principle 4
 // code example for Explicit Binding
+
+const Introduction = function(obj) {
+    this.age = obj.age,
+    this.name = obj.name,
+    this.coder = obj.coder
+}
+Introduction.prototype.intro = function() {
+    return `Hi! My name is ${this.name}, I am ${this.age} years old and ${this.coder}, I am for sure a coder.`
+}
+
+const me = new Introduction ({
+    name: "Jon",
+    age: 21,
+    coder: "yes"
+})
+const you = new Introduction ({
+    name: "You",
+    age: 21,
+    coder: "no"
+})
+console.log(me.intro());
+console.log(me.intro.call(you)); //does not make any sense but that's explicit binding <-
+
